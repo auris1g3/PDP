@@ -1,4 +1,4 @@
-package pdp_project;
+package pdp_project.db;
 
 import lombok.NoArgsConstructor;
 import org.apache.log4j.Logger;

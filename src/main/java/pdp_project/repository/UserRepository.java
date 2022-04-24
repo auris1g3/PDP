@@ -1,5 +1,6 @@
-package pdp_project;
+package pdp_project.repository;
 
+import pdp_project.db.LoggedSQL;
 import pdp_project.dto.UserDto;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 public class UserRepository {
 
     public List<UserDto> getAll() {
-        return new SQL().select(getAllQuery(), UserDto.class);
+        return new LoggedSQL().select(getAllQuery(), UserDto.class);
     }
 
     private String getAllQuery() {
