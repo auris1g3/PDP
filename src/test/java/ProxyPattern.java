@@ -12,6 +12,7 @@ public class ProxyPattern {
         new LoggedSQL().update("update `user` set age=34 WHERE id= 1");
         System.out.println("---------------");
 
+
         //Proxy cache
         //Without cache
         SimpleExchangeRateProvider simpleExchangeRateProvider = new SimpleExchangeRateProvider();
