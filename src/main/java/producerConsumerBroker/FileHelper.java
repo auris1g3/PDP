@@ -10,7 +10,7 @@ public class FileHelper {
 
     @SneakyThrows
     public void saveFile(String contentFile, String fileName) {
-        FileOutputStream fos = new FileOutputStream("/home/" + name + "/Documents/" + fileName);
+        FileOutputStream fos = new FileOutputStream("/home/" + name + "/Documents/files/" + fileName);
         fos.write(contentFile.getBytes());
         fos.flush();
         fos.close();

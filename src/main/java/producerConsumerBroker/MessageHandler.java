@@ -14,7 +14,7 @@ public class MessageHandler implements IMessage {
 
     private String setLinks() {
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter one link please: ");
+        System.out.print("Enter links please: ");
         String links = in.nextLine();
         in.close();
         return links;
