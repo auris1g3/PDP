@@ -19,11 +19,11 @@ public class Broker {
     }
 
     @SneakyThrows
-    public synchronized Message getMessage() {
+    public Message getMessage() {
         return this.queue.take();
     }
 
-    public synchronized boolean isHaveMessage() {
+    public boolean isHaveMessage() {
         return this.queue.size() > 0;
     }
 }
