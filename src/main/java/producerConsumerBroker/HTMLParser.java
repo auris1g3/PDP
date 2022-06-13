@@ -1,29 +1,37 @@
+package producerConsumerBroker;
+
 import lombok.SneakyThrows;
-import producerConsumerBroker.Broker;
-import producerConsumerBroker.Consumer;
-import producerConsumerBroker.MessageHandler;
-import producerConsumerBroker.Producer;
 import producerConsumerBroker.archiveUtils.ArchiveHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SecondTask {
 
-    @SneakyThrows
-    public static void main(String[] args) {
-        var files = new MessageHandler().getMessages();
+public class HTMLParser {
+
+    private final int countConsumer;
+
+    public HTMLParser(int countConsumer) {
+        this.countConsumer = countConsumer;
+
+    }
+
+    public void run() {
+        var files = createMessage();
 
         Broker broker = new Broker();
         new Producer(broker, files);
-        createConsumers(broker, 3);
+        createConsumers(broker, countConsumer);
 
         new ArchiveHelper(files).archiveFiles();
     }
 
+    private List<Message> createMessage() {
+        return new MessageHandler().getMessages();
+    }
 
     @SneakyThrows
-    private static void createConsumers(Broker broker, int countConsumer) {
+    private void createConsumers(Broker broker, int countConsumer) {
         List<Thread> listThread = new ArrayList<>();
         for (int i = 0; i < countConsumer; i++) {
             Thread thread = new Thread(new Consumer(broker));
